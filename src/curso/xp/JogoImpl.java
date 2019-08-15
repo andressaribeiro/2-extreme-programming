@@ -45,6 +45,7 @@ public class JogoImpl implements Jogo {
         cenario = refresh();
 
         StringBuilder builder = new StringBuilder();
+        builder.append("Pontos: " + score+"\n");
 
         for (int i = 0; i < cenario.length; i++) {
             for (int j = 0; j < cenario.length; j++) {
@@ -94,9 +95,5 @@ public class JogoImpl implements Jogo {
     @Override
     public void tick() {
 
-    }
-
-    public Integer getScore() {
-        return score;
     }
 }
