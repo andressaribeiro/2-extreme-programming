@@ -1,5 +1,5 @@
 
-import curso.xp.Engine;
+import curso.xp.Game;
 import curso.xp.PlayerService;
 import model.Player;
 
@@ -7,10 +7,9 @@ import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class CapturadorDeTeclas {
+public class KomeCommy {
 
-	public static Player player;
-	public static Engine engine = new Engine();
+	public static Game engine = new Game();
 	public static boolean resume = true;
 
 	public static void main(String[] args) {
@@ -19,10 +18,6 @@ public class CapturadorDeTeclas {
 		frame.add(button);
 		frame.setVisible(true);
 
-
-		PlayerService service = new PlayerService();
-		player = service.createPlayer();
-
 		String[][] cenario = engine.getCenario();
 		engine.imprimirCenario(cenario);
 
@@ -30,8 +25,6 @@ public class CapturadorDeTeclas {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				player = service.movePlayer(e.getKeyCode(), player);
-				engine.printPlayerPosition(player);
 
 				System.out.println(e.getKeyCode());
 
