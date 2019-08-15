@@ -44,7 +44,7 @@ public class KomeCommy {
 
 		while (resume) {
 
-			if(tick%2 == 0 ){
+			if(tick%4 == 0 ){
 				engine.tick();
 			}
 			System.out.print("\033[H\033[2J");
