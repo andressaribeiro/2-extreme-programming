@@ -26,16 +26,16 @@ public class PlayerService {
             }
 
             case 38: {
-                player.getPosition().y = player.getPosition().y + 1;
-                return player;
-            }
-
-            case 40: {
                 if (player.getPosition().y - 1 < 0) {
                     return player;
                 }
 
                 player.getPosition().y = player.getPosition().y - 1;
+                return player;
+            }
+
+            case 40: {
+                player.getPosition().y = player.getPosition().y + 1;
                 return player;
             }
 
