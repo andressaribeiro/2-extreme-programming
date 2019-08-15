@@ -16,6 +16,7 @@ public class CapturadorDeTeclas {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				System.out.println(e.getKeyCode());
+
 			}
 		});
 	}
