@@ -4,6 +4,7 @@ import curso.xp.JogoImpl;
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 public class KomeCommy {
 
@@ -20,7 +21,16 @@ public class KomeCommy {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-//				engine.move(e.getKeyCode());
+				switch (e.getKeyCode()){
+					case KeyEvent.VK_DOWN: engine.desce();
+					break;
+					case KeyEvent.VK_UP: engine.sobe();
+					break;
+					case KeyEvent.VK_LEFT: engine.esquerda();
+					break;
+					case KeyEvent.VK_RIGHT: engine.direita();
+					break;
+				}
 			}
 		});
 
@@ -30,8 +40,21 @@ public class KomeCommy {
 
 	private static void loop() {
 
+		long tick = 0;
+
 		while (resume) {
+
+			if(tick%2 == 0 ){
+				engine.tick();
+			}
+
 			System.out.println(engine.tela());
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+
+			tick++;
 
 			try {
 				Thread.sleep(500);
