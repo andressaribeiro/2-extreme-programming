@@ -1,7 +1,5 @@
 
-import curso.xp.Game;
-import curso.xp.PlayerService;
-import model.Player;
+import curso.xp.JogoImpl;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -9,7 +7,7 @@ import java.awt.event.KeyEvent;
 
 public class KomeCommy {
 
-	public static Game engine = new Game();
+	public static JogoImpl engine = new JogoImpl();
 	public static boolean resume = true;
 
 	public static void main(String[] args) {
@@ -22,19 +20,18 @@ public class KomeCommy {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				engine.move(e.getKeyCode());
+//				engine.move(e.getKeyCode());
 			}
 		});
 
-		engine.start();
 
 		loop();
 	}
 
-	public static void loop() {
+	private static void loop() {
 
 		while (resume) {
-			engine.imprimirCenario();
+			System.out.println(engine.tela());
 
 			try {
 				Thread.sleep(500);

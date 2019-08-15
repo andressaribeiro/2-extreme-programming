@@ -10,10 +10,10 @@ import static org.junit.Assert.assertTrue;
 
 public class KomeCommyTest {
 
-   private Jogo jogo;
+    private Jogo jogo;
 
     @Before
-    public void iniciarJOgo(){
+    public void iniciarJOgo() {
         this.jogo = new Jogo();
     }
 
@@ -21,7 +21,7 @@ public class KomeCommyTest {
     @Test
     public void iniciarTela() {
         Assert.assertEquals(
-                       "@----\n " +
+                "@----\n " +
                         "-----\n" +
                         "-----\n" +
                         "-----\n" +
@@ -34,7 +34,7 @@ public class KomeCommyTest {
     public void movimentarDireita() {
         jogo.direita();
         Assert.assertEquals(
-                        "-@---\n " +
+                "-@---\n " +
                         "-----\n" +
                         "-----\n" +
                         "-----\n" +
@@ -49,7 +49,7 @@ public class KomeCommyTest {
         jogo.direita();
         jogo.esquerda();
         Assert.assertEquals(
-                       "--@--\n " +
+                "--@--\n " +
                         "-----\n" +
                         "-----\n" +
                         "-----\n" +
@@ -62,7 +62,7 @@ public class KomeCommyTest {
     public void descer() {
         jogo.descer();
         Assert.assertEquals(
-                        "-----\n " +
+                "-----\n " +
                         "--@--\n" +
                         "-----\n" +
                         "-----\n" +
@@ -77,12 +77,12 @@ public class KomeCommyTest {
         jogo.descer();
         jogo.subir();
         Assert.assertEquals(
-                        "-----\n " +
+                "-----\n " +
                         "-----\n" +
                         "--@--\n" +
                         "-----\n" +
                         "-----",
                 jogo.tela());
-    }
 
+    }
 }
