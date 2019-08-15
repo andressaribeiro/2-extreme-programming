@@ -12,13 +12,6 @@ public class JogoImpl implements Jogo {
 
     private Integer score = 0;
 
-<<<<<<< Updated upstream
-=======
-    private void startCenario() {
-
-    }
-
->>>>>>> Stashed changes
     public String[][] refresh() {
         if (cenario == null) {
             cenario = new String[5][5];
