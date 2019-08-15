@@ -33,6 +33,9 @@ public class JogoImpl implements Jogo {
             }
         }
 
+        if ("-".equals(cenario[player.getPosition().y][player.getPosition().x])) {
+            score++;
+        }
         cenario[player.getPosition().y][player.getPosition().x] = "@";
 
         return cenario;
@@ -42,6 +45,7 @@ public class JogoImpl implements Jogo {
         cenario = refresh();
 
         StringBuilder builder = new StringBuilder();
+        builder.append("Pontos: " + score+"\n");
 
         for (int i = 0; i < cenario.length; i++) {
             for (int j = 0; j < cenario.length; j++) {
@@ -92,5 +96,4 @@ public class JogoImpl implements Jogo {
     public void tick() {
 
     }
-
 }

@@ -44,20 +44,18 @@ public class KomeCommy {
 
 		while (resume) {
 
-			if(tick%2 == 0 ){
+			if(tick%4 == 0 ){
 				engine.tick();
 			}
 
-			System.out.println(engine.tela());
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
+			System.out.print("\033[H\033[2J");
+			System.out.flush();
+			System.out.print(engine.tela());
 
 			tick++;
 
 			try {
-				Thread.sleep(500);
+				Thread.sleep(60);
 			} catch (Exception e) {
 
 			}
