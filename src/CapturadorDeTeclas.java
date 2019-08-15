@@ -1,3 +1,4 @@
+
 import curso.xp.Engine;
 import curso.xp.PlayerService;
 import model.Player;
@@ -8,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 public class CapturadorDeTeclas {
 
-	public static Player player;
+public static Player player;
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
@@ -19,7 +20,6 @@ public class CapturadorDeTeclas {
 		Engine engine = new Engine();
 		PlayerService service = new PlayerService();
 		player = service.createPlayer();
-
 
 		button.addKeyListener(new KeyAdapter(){
 
