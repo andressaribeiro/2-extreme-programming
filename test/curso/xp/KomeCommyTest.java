@@ -13,14 +13,14 @@ public class KomeCommyTest {
     @Ignore
     @Test
     public void telaInicial() {
-        GameCore jogo = new Game();
-        Assert.assertEquals(
-                "@----\n " +
-                "-----\n" +
-                "-----\n" +
-                "-----\n" +
-                "-----",
-                jogo.screen());
+//        GameCore jogo = new Game();
+//        Assert.assertEquals(
+//                "@----\n " +
+//                "-----\n" +
+//                "-----\n" +
+//                "-----\n" +
+//                "-----",
+//                jogo.screen());
     }
 
 }

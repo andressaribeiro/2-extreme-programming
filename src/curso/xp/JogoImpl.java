@@ -2,11 +2,11 @@ package curso.xp;
 
 import model.Player;
 
-public class Game implements GameCore {
+import java.awt.*;
 
-    private Player player;
+public class JogoImpl implements Jogo {
 
-    private PlayerService service;
+    private Player player = new Player(2, 3, new Point(0, 0));
 
     private String[][] cenario = new String[5][5];
 
@@ -28,7 +28,7 @@ public class Game implements GameCore {
         return cenario;
     }
 
-    public String screen() {
+    public String tela() {
         cenario = refresh();
 
         StringBuilder builder = new StringBuilder();
@@ -44,18 +44,42 @@ public class Game implements GameCore {
     }
 
     @Override
-    public void start() {
-        service = new PlayerService();
-        player = service.createPlayer();
+    public void sobe() {
+        if (player.getPosition().y - 1 < 0) {
+            return;
+        }
+
+        player.getPosition().y = player.getPosition().y - 1;
     }
 
     @Override
-    public void move(int key) {
-        player = service.movePlayer(key, player);
+    public void desce() {
+        if (player.getPosition().y + 1 > 4) {
+            return;
+        }
+
+        player.getPosition().y = player.getPosition().y + 1;
     }
 
     @Override
-    public void gameTick() {
+    public void esquerda() {
+        if (player.getPosition().x - 1 < 0) {
+            return;
+        }
+        player.getPosition().x = player.getPosition().x - 1;
+    }
+
+    @Override
+    public void direita() {
+        if (player.getPosition().x + 1 > 4) {
+            return;
+        }
+
+        player.getPosition().x = player.getPosition().x + 1;
+    }
+
+    @Override
+    public void tick() {
 
     }
 
