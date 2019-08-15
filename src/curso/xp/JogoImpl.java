@@ -10,16 +10,26 @@ public class JogoImpl implements Jogo {
 
     private String[][] cenario = new String[5][5];
 
+    private Integer score = 0;
+
     public String[][] refresh() {
         if (cenario == null) {
             cenario = new String[5][5];
         }
 
-        String t = ".";
+        String t = "-";
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                cenario[j][i] = t;
+                if (cenario[j][i] == null) {
+                    cenario[j][i] = t;
+                } else {
+
+                    if ("@".equals(cenario[j][i])) {
+                        cenario[j][i] = ".";
+                    }
+
+                }
             }
         }
 
