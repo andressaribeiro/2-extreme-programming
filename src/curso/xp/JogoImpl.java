@@ -33,6 +33,9 @@ public class JogoImpl implements Jogo {
             }
         }
 
+        if ("-".equals(cenario[player.getPosition().y][player.getPosition().x])) {
+            score++;
+        }
         cenario[player.getPosition().y][player.getPosition().x] = "@";
 
         return cenario;
@@ -93,4 +96,7 @@ public class JogoImpl implements Jogo {
 
     }
 
+    public Integer getScore() {
+        return score;
+    }
 }

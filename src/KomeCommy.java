@@ -48,6 +48,7 @@ public class KomeCommy {
 				engine.tick();
 			}
 
+			System.out.println("Pontos: " + engine.getScore());
 			System.out.println(engine.tela());
 			System.out.println();
 			System.out.println();
