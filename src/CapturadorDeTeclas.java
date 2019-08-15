@@ -21,11 +21,13 @@ public static Player player;
 		PlayerService service = new PlayerService();
 		player = service.createPlayer();
 
+		String[][] cenario = engine.getCenario();
+		engine.imprimirCenario(cenario);
+
 		button.addKeyListener(new KeyAdapter(){
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-
 				player = service.movePlayer(e.getKeyCode(), player);
 				engine.printPlayerPosition(player);
 
