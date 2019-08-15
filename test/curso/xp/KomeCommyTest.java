@@ -11,6 +11,7 @@ public class KomeCommyTest {
     @Before
     public void iniciarJOgo() {
         this.jogo = new JogoImpl();
+        this.jogo.tela();
     }
 
     @Test

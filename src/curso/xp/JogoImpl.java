@@ -45,7 +45,7 @@ public class JogoImpl implements Jogo {
         cenario = refresh();
 
         StringBuilder builder = new StringBuilder();
-        builder.append("Pontos: " + score+"\n");
+        builder.append(score-1+"\n");
 
         for (int i = 0; i < cenario.length; i++) {
             for (int j = 0; j < cenario.length; j++) {
