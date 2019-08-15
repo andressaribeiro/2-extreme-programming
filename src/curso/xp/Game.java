@@ -10,7 +10,7 @@ public class Game implements GameCore {
 
     private String[][] cenario = new String[5][5];
 
-    public String[][] getCenario() {
+    public String[][] refresh() {
         if (cenario == null) {
             cenario = new String[5][5];
         }
@@ -23,13 +23,13 @@ public class Game implements GameCore {
             }
         }
 
-        cenario[player.getPosition().y][player.getPosition().x] = "X";
+        cenario[player.getPosition().y][player.getPosition().x] = "@";
 
         return cenario;
     }
 
-    public void imprimirCenario() {
-        cenario = getCenario();
+    public String screen() {
+        cenario = refresh();
 
         StringBuilder builder = new StringBuilder();
 
@@ -40,7 +40,7 @@ public class Game implements GameCore {
             builder.append("\n");
         }
 
-        System.out.println(builder.toString());
+        return builder.toString();
     }
 
     @Override

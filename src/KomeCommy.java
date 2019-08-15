@@ -31,10 +31,10 @@ public class KomeCommy {
 		loop();
 	}
 
-	public static void loop() {
+	private static void loop() {
 
 		while (resume) {
-			engine.imprimirCenario();
+			System.out.println(engine.screen());
 
 			try {
 				Thread.sleep(500);
