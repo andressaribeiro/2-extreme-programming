@@ -14,7 +14,7 @@ public class KomeCommyTest {
 
     @Before
     public void iniciarJOgo() {
-        this.jogo = new Jogo();
+        this.jogo = new JogoImpl();
     }
 
     @Ignore
@@ -42,7 +42,6 @@ public class KomeCommyTest {
                 jogo.tela());
     }
 
-    @Ignore
     @Test
     public void movimentarEsquerda() {
         jogo.direita();
@@ -60,7 +59,7 @@ public class KomeCommyTest {
     @Ignore
     @Test
     public void descer() {
-        jogo.descer();
+        jogo.desce();
         Assert.assertEquals(
                 "-----\n " +
                         "--@--\n" +
@@ -73,9 +72,9 @@ public class KomeCommyTest {
     @Ignore
     @Test
     public void subir() {
-        jogo.descer();
-        jogo.descer();
-        jogo.subir();
+        jogo.desce();
+        jogo.desce();
+        jogo.sobe();
         Assert.assertEquals(
                 "-----\n " +
                         "-----\n" +
