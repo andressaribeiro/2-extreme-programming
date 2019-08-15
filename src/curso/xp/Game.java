@@ -10,10 +10,6 @@ public class Game implements GameCore {
 
     private String[][] cenario = new String[5][5];
 
-    public void printPlayerPosition(Player player) {
-        getCenario()[player.getPosition().y][player.getPosition().x] = "X";
-    }
-
     public String[][] getCenario() {
         if (cenario == null) {
             cenario = new String[5][5];
@@ -26,10 +22,15 @@ public class Game implements GameCore {
                 cenario[j][i] = t;
             }
         }
+
+        cenario[player.getPosition().y][player.getPosition().x] = "X";
+
         return cenario;
     }
 
-    public void imprimirCenario(String[][] cenario) {
+    public void imprimirCenario() {
+        cenario = getCenario();
+
         StringBuilder builder = new StringBuilder();
 
         for (int i = 0; i < cenario.length; i++) {
@@ -49,23 +50,8 @@ public class Game implements GameCore {
     }
 
     @Override
-    public void moveUp() {
-
-    }
-
-    @Override
-    public void moveDown() {
-
-    }
-
-    @Override
-    public void moveLeft() {
-
-    }
-
-    @Override
-    public void moveRight() {
-
+    public void move(int key) {
+        player = service.movePlayer(key, player);
     }
 
     @Override
@@ -73,8 +59,4 @@ public class Game implements GameCore {
 
     }
 
-    @Override
-    public void printPlayerPosition() {
-
-    }
 }

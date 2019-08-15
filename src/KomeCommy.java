@@ -18,26 +18,26 @@ public class KomeCommy {
 		frame.add(button);
 		frame.setVisible(true);
 
-		String[][] cenario = engine.getCenario();
-		engine.imprimirCenario(cenario);
-
 		button.addKeyListener(new KeyAdapter(){
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-
-				System.out.println(e.getKeyCode());
-
+				engine.move(e.getKeyCode());
 			}
 		});
 
+		engine.start();
+
+		loop();
 	}
 
 	public static void loop() {
 
 		while (resume) {
+			engine.imprimirCenario();
+
 			try {
-				Thread.sleep(300);
+				Thread.sleep(500);
 			} catch (Exception e) {
 
 			}

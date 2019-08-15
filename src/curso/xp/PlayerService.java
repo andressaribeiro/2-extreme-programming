@@ -21,6 +21,10 @@ public class PlayerService {
             }
 
             case 39: {
+                if (player.getPosition().x + 1 > 4) {
+                    return player;
+                }
+
                 player.getPosition().x = player.getPosition().x + 1;
                 return player;
             }
@@ -35,6 +39,10 @@ public class PlayerService {
             }
 
             case 40: {
+                if (player.getPosition().y + 1 > 4) {
+                    return player;
+                }
+
                 player.getPosition().y = player.getPosition().y + 1;
                 return player;
             }
