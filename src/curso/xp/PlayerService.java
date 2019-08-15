@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class PlayerService {
 
-    public Player createPlayer() {
+    public Player  createPlayer() {
         return new Player(2, 3, new Point(0, 0));
     }
 

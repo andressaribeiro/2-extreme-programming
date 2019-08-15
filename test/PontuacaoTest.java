@@ -11,4 +11,6 @@ public class PontuacaoTest {
         Integer score = pontuacao.getPontuacao();
         Assert.assertEquals(expected, score);
     }
+
+
 }

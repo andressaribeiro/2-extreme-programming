@@ -12,4 +12,6 @@ public class UserServiceTest {
     public void isUserLogged() {
         assertTrue(userService.isUserLogged());
     }
+
+
 }
