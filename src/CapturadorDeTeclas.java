@@ -9,7 +9,9 @@ import java.awt.event.KeyEvent;
 
 public class CapturadorDeTeclas {
 
-public static Player player;
+	public static Player player;
+	public static Engine engine = new Engine();
+	public static boolean resume = true;
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
@@ -17,7 +19,7 @@ public static Player player;
 		frame.add(button);
 		frame.setVisible(true);
 
-		Engine engine = new Engine();
+
 		PlayerService service = new PlayerService();
 		player = service.createPlayer();
 
@@ -33,8 +35,19 @@ public static Player player;
 
 			}
 		});
+
 	}
 
+	public static void loop() {
 
+		while (resume) {
+			try {
+				Thread.sleep(300);
+			} catch (Exception e) {
+
+			}
+
+		}
+	}
 
 }
