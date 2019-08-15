@@ -1,12 +1,8 @@
 package curso.xp;
 
-import model.Player;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-
-import static org.junit.Assert.assertTrue;
 
 public class KomeCommyTest {
 
@@ -17,28 +13,30 @@ public class KomeCommyTest {
         this.jogo = new JogoImpl();
     }
 
-    @Ignore
     @Test
     public void iniciarTela() {
+        System.out.println(jogo.tela());
+
         Assert.assertEquals(
-                "@----\n " +
+                "0\n" +
+                        "@----\n" +
                         "-----\n" +
                         "-----\n" +
                         "-----\n" +
-                        "-----",
+                        "-----\n",
                 jogo.tela());
     }
 
-    @Ignore
     @Test
     public void movimentarDireita() {
         jogo.direita();
         Assert.assertEquals(
-                "-@---\n " +
+                "1\n" +
+                        ".@---\n" +
                         "-----\n" +
                         "-----\n" +
                         "-----\n" +
-                        "-----",
+                        "-----\n",
                 jogo.tela());
     }
 
@@ -48,40 +46,72 @@ public class KomeCommyTest {
         jogo.direita();
         jogo.esquerda();
         Assert.assertEquals(
-                "--@--\n " +
+                "2\n" +
+                        ".@.--\n" +
                         "-----\n" +
                         "-----\n" +
                         "-----\n" +
-                        "-----",
+                        "-----\n",
                 jogo.tela());
     }
 
-    @Ignore
     @Test
     public void descer() {
         jogo.desce();
         Assert.assertEquals(
-                "-----\n " +
-                        "--@--\n" +
+                "1\n" +
+                        ".----\n" +
+                        "@----\n" +
                         "-----\n" +
                         "-----\n" +
-                        "-----",
+                        "-----\n",
                 jogo.tela());
     }
 
-    @Ignore
     @Test
     public void subir() {
         jogo.desce();
         jogo.desce();
         jogo.sobe();
         Assert.assertEquals(
-                "-----\n " +
+                "2\n" +
+                        ".----\n" +
+                        "@----\n" +
+                        ".----\n" +
                         "-----\n" +
-                        "--@--\n" +
+                        "-----\n",
+                jogo.tela());
+    }
+
+    @Test
+    public void movimentarFinal() {
+        jogo.direita();
+        jogo.direita();
+        jogo.direita();
+        jogo.direita();
+        jogo.direita();
+        Assert.assertEquals(
+                "4\n" +
+                        "....@\n" +
                         "-----\n" +
-                        "-----",
+                        "-----\n" +
+                        "-----\n" +
+                        "-----\n",
                 jogo.tela());
 
+        jogo.desce();
+        jogo.desce();
+        jogo.desce();
+        jogo.desce();
+        jogo.desce();
+        Assert.assertEquals(
+                "8\n" +
+                        ".....\n" +
+                        "----.\n" +
+                        "----.\n" +
+                        "----.\n" +
+                        "----@\n",
+                jogo.tela());
     }
+
 }
