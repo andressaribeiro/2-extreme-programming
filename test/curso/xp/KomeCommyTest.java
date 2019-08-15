@@ -112,6 +112,56 @@ public class KomeCommyTest {
                         "----.\n" +
                         "----@\n",
                 jogo.tela());
+
+        jogo.esquerda();
+        jogo.esquerda();
+        jogo.esquerda();
+        jogo.esquerda();
+        jogo.esquerda();
+        Assert.assertEquals(
+                "12\n" +
+                        ".....\n" +
+                        "----.\n" +
+                        "----.\n" +
+                        "----.\n" +
+                        "@....\n",
+                jogo.tela());
+
+        jogo.sobe();
+        jogo.sobe();
+        jogo.sobe();
+        jogo.sobe();
+        jogo.sobe();
+        Assert.assertEquals(
+                "15\n" +
+                        "@....\n" +
+                        ".---.\n" +
+                        ".---.\n" +
+                        ".---.\n" +
+                        ".....\n",
+                jogo.tela());
+
+        jogo.direita();
+        jogo.desce();
+        jogo.desce();
+        jogo.desce();
+        jogo.direita();
+        jogo.sobe();
+        jogo.sobe();
+        jogo.direita();
+        jogo.desce();
+        jogo.desce();
+        jogo.desce();
+        jogo.direita();
+        Assert.assertEquals(
+                "24\n" +
+                        ".....\n" +
+                        ".---.\n" +
+                        ".---.\n" +
+                        ".---.\n" +
+                        ".....\n",
+                jogo.tela());
+
     }
 
 }
