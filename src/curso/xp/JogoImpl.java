@@ -19,12 +19,13 @@ public class JogoImpl implements Jogo {
     }
 
     private String[][] refresh() {
-        String tracinho = "-";
+        String comida = "-";
         String jogador = "@";
 
-        iniciarCenario(tracinho, jogador);
+        iniciarCenario(comida, jogador);
 
-        if (tracinho.equals(cenario[this.jogador.getPosition().y][this.jogador.getPosition().x])) {
+        String celulaDoJogador = cenario[this.jogador.getPosition().y][this.jogador.getPosition().x];
+        if (comida.equals(celulaDoJogador)) {
             score++;
         }
         cenario[this.jogador.getPosition().y][this.jogador.getPosition().x] = jogador;
@@ -33,10 +34,6 @@ public class JogoImpl implements Jogo {
     }
 
     private void iniciarCenario(String tracinho, String jogador) {
-        if (cenario == null) {
-            cenario = new String[tamanhoDoCenario][tamanhoDoCenario];
-        }
-
         for (int coluna = 0; coluna < tamanhoDoCenario; coluna++) {
             for (int linha = 0; linha < tamanhoDoCenario; linha++) {
                 if (cenario[linha][coluna] == null) {
@@ -67,7 +64,13 @@ public class JogoImpl implements Jogo {
         return builder.toString();
     }
 
-    @Override
+//    public void sobe2()     {anda(-1,  0);}
+//    public void desce2()    {anda( 1,  0);}
+//    public void esquerda2() {anda( 0, -1);}
+//    public void direita2()  {anda( 0,  1);}
+
+
+        @Override
     public void sobe() {
         if (jogador.getPosition().y - 1 < 0) {
             return;
