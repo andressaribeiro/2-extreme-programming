@@ -12,6 +12,10 @@ public class JogoImpl implements Jogo {
 
     private Integer score = -1;
 
+    public JogoImpl () {
+        tela();
+    }
+
     public String[][] refresh() {
         if (cenario == null) {
             cenario = new String[5][5];
@@ -64,6 +68,7 @@ public class JogoImpl implements Jogo {
         }
 
         player.getPosition().y = player.getPosition().y - 1;
+        tela();
     }
 
     @Override
@@ -73,6 +78,7 @@ public class JogoImpl implements Jogo {
         }
 
         player.getPosition().y = player.getPosition().y + 1;
+        tela();
     }
 
     @Override
@@ -81,6 +87,7 @@ public class JogoImpl implements Jogo {
             return;
         }
         player.getPosition().x = player.getPosition().x - 1;
+        tela();
     }
 
     @Override
@@ -90,10 +97,10 @@ public class JogoImpl implements Jogo {
         }
 
         player.getPosition().x = player.getPosition().x + 1;
+        tela();
     }
 
     @Override
     public void tick() {
-
     }
 }
