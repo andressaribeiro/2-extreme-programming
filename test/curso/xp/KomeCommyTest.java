@@ -11,6 +11,7 @@ public class KomeCommyTest {
     @Before
     public void iniciarJOgo() {
         this.jogo = new JogoImpl();
+        this.jogo.tela();
     }
 
     @Test
@@ -18,7 +19,7 @@ public class KomeCommyTest {
         System.out.println(jogo.tela());
 
         Assert.assertEquals(
-                "0\n" +
+                "Pontos: 0\n" +
                         "@----\n" +
                         "-----\n" +
                         "-----\n" +
@@ -31,7 +32,7 @@ public class KomeCommyTest {
     public void movimentarDireita() {
         jogo.direita();
         Assert.assertEquals(
-                "1\n" +
+                "Pontos: 1\n" +
                         ".@---\n" +
                         "-----\n" +
                         "-----\n" +
@@ -43,10 +44,12 @@ public class KomeCommyTest {
     @Test
     public void movimentarEsquerda() {
         jogo.direita();
+        jogo.tela();
         jogo.direita();
+        jogo.tela();
         jogo.esquerda();
         Assert.assertEquals(
-                "2\n" +
+                "Pontos: 2\n" +
                         ".@.--\n" +
                         "-----\n" +
                         "-----\n" +
@@ -59,7 +62,7 @@ public class KomeCommyTest {
     public void descer() {
         jogo.desce();
         Assert.assertEquals(
-                "1\n" +
+                "Pontos: 1\n" +
                         ".----\n" +
                         "@----\n" +
                         "-----\n" +
@@ -71,10 +74,12 @@ public class KomeCommyTest {
     @Test
     public void subir() {
         jogo.desce();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.sobe();
         Assert.assertEquals(
-                "2\n" +
+                "Pontos: 2\n" +
                         ".----\n" +
                         "@----\n" +
                         ".----\n" +
@@ -86,12 +91,16 @@ public class KomeCommyTest {
     @Test
     public void movimentarFinal() {
         jogo.direita();
+        jogo.tela();
         jogo.direita();
+        jogo.tela();
         jogo.direita();
+        jogo.tela();
         jogo.direita();
+        jogo.tela();
         jogo.direita();
         Assert.assertEquals(
-                "4\n" +
+                "Pontos: 4\n" +
                         "....@\n" +
                         "-----\n" +
                         "-----\n" +
@@ -100,12 +109,16 @@ public class KomeCommyTest {
                 jogo.tela());
 
         jogo.desce();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.desce();
         Assert.assertEquals(
-                "8\n" +
+                "Pontos: 8\n" +
                         ".....\n" +
                         "----.\n" +
                         "----.\n" +
@@ -114,12 +127,16 @@ public class KomeCommyTest {
                 jogo.tela());
 
         jogo.esquerda();
+        jogo.tela();
         jogo.esquerda();
+        jogo.tela();
         jogo.esquerda();
+        jogo.tela();
         jogo.esquerda();
+        jogo.tela();
         jogo.esquerda();
         Assert.assertEquals(
-                "12\n" +
+                "Pontos: 12\n" +
                         ".....\n" +
                         "----.\n" +
                         "----.\n" +
@@ -128,12 +145,16 @@ public class KomeCommyTest {
                 jogo.tela());
 
         jogo.sobe();
+        jogo.tela();
         jogo.sobe();
+        jogo.tela();
         jogo.sobe();
+        jogo.tela();
         jogo.sobe();
+        jogo.tela();
         jogo.sobe();
         Assert.assertEquals(
-                "15\n" +
+                        "Pontos: 15\n" +
                         "@....\n" +
                         ".---.\n" +
                         ".---.\n" +
@@ -142,24 +163,36 @@ public class KomeCommyTest {
                 jogo.tela());
 
         jogo.direita();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.direita();
+        jogo.tela();
         jogo.sobe();
+        jogo.tela();
         jogo.sobe();
+        jogo.tela();
         jogo.direita();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.desce();
+        jogo.tela();
         jogo.direita();
+
         Assert.assertEquals(
-                "24\n" +
+                        "Pontos: 24\n" +
                         ".....\n" +
-                        ".---.\n" +
-                        ".---.\n" +
-                        ".---.\n" +
-                        ".....\n",
+                        ".....\n" +
+                        ".....\n" +
+                        ".....\n" +
+                        "....@\n",
                 jogo.tela());
 
     }

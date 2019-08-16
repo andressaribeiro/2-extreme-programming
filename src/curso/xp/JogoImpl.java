@@ -10,7 +10,7 @@ public class JogoImpl implements Jogo {
 
     private String[][] cenario = new String[5][5];
 
-    private Integer score = 0;
+    private Integer score = -1;
 
     public String[][] refresh() {
         if (cenario == null) {
