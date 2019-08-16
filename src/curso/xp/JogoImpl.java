@@ -19,26 +19,10 @@ public class JogoImpl implements Jogo {
     }
 
     private String[][] refresh() {
-        if (cenario == null) {
-            cenario = new String[tamanhoDoCenario][tamanhoDoCenario];
-        }
-
         String tracinho = "-";
         String jogador = "@";
 
-        for (int coluna = 0; coluna < tamanhoDoCenario; coluna++) {
-            for (int linha = 0; linha < tamanhoDoCenario; linha++) {
-                if (cenario[linha][coluna] == null) {
-                    cenario[linha][coluna] = tracinho;
-                } else {
-
-                    if (jogador.equals(cenario[linha][coluna])) {
-                        cenario[linha][coluna] = ".";
-                    }
-
-                }
-            }
-        }
+        iniciarCenario(tracinho, jogador);
 
         if (tracinho.equals(cenario[this.jogador.getPosition().y][this.jogador.getPosition().x])) {
             score++;
@@ -46,6 +30,25 @@ public class JogoImpl implements Jogo {
         cenario[this.jogador.getPosition().y][this.jogador.getPosition().x] = jogador;
 
         return cenario;
+    }
+
+    private void iniciarCenario(String tracinho, String jogador) {
+        if (cenario == null) {
+            cenario = new String[tamanhoDoCenario][tamanhoDoCenario];
+        }
+
+        for (int coluna = 0; coluna < tamanhoDoCenario; coluna++) {
+            for (int linha = 0; linha < tamanhoDoCenario; linha++) {
+                if (cenario[linha][coluna] == null) {
+                    cenario[linha][coluna] = tracinho;
+                } else {
+                    if (jogador.equals(cenario[linha][coluna])) {
+                        cenario[linha][coluna] = ".";
+                    }
+
+                }
+            }
+        }
     }
 
     public String tela() {
