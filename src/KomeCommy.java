@@ -4,12 +4,11 @@ import curso.xp.JogoImpl;
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 
 public class KomeCommy {
 
-	public static JogoImpl engine = new JogoImpl();
-	public static boolean resume = true;
+	private static JogoImpl jogo = new JogoImpl();
+	private static boolean resume = true;
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
@@ -17,49 +16,37 @@ public class KomeCommy {
 		frame.add(button);
 		frame.setVisible(true);
 
-		button.addKeyListener(new KeyAdapter(){
+		button.addKeyListener(new KeyAdapter() {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				switch (e.getKeyCode()){
-					case KeyEvent.VK_DOWN: engine.desce();
+				switch (e.getKeyCode()) {
+					case KeyEvent.VK_DOWN: jogo.desce();
 					break;
-					case KeyEvent.VK_UP: engine.sobe();
+					case KeyEvent.VK_UP: jogo.sobe();
 					break;
-					case KeyEvent.VK_LEFT: engine.esquerda();
+					case KeyEvent.VK_LEFT: jogo.esquerda();
 					break;
-					case KeyEvent.VK_RIGHT: engine.direita();
+					case KeyEvent.VK_RIGHT: jogo.direita();
 					break;
 				}
 			}
 		});
 
-
 		loop();
 	}
 
 	private static void loop() {
-
-		long tick = 0;
-
 		while (resume) {
-
-			if(tick%4 == 0 ){
-				engine.tick();
-			}
-
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
-			System.out.print(engine.tela());
-
-			tick++;
+			System.out.print(jogo.tela());
 
 			try {
 				Thread.sleep(60);
 			} catch (Exception e) {
 
 			}
-
 		}
 	}
 

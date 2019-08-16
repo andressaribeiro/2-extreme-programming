@@ -2,7 +2,7 @@ package model;
 
 import java.awt.*;
 
-public class Player {
+public class Jogador {
 
     private int size;
 
@@ -10,10 +10,10 @@ public class Player {
 
     private Point position;
 
-    public Player() {
+    public Jogador() {
     }
 
-    public Player(int size, int lifes, Point position) {
+    public Jogador(int size, int lifes, Point position) {
         this.size = size;
         this.lifes = lifes;
         this.position = position;
