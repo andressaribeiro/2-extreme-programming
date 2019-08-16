@@ -2,6 +2,7 @@ package curso.xp;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class JogoImplTest {
@@ -162,6 +163,29 @@ public class JogoImplTest {
                         "....@\n",
                 jogo.tela());
 
+    }
+
+    @Test
+    @Ignore
+    public void fantasma() {
+        jogo.direita();
+        Assert.assertEquals(
+                "Pontos: 1\n" +
+                        ".@---\n" +
+                        "-----\n" +
+                        "-----\n" +
+                        "-----\n" +
+                        "-----\n",
+                jogo.tela());
+        jogo.tick();
+        Assert.assertEquals(
+                "Pontos: 1\n" +
+                        ".@---\n" +
+                        "-----\n" +
+                        "-----\n" +
+                        "-----\n" +
+                        "----F\n",
+                jogo.tela());
     }
 
 }
