@@ -177,6 +177,7 @@ public class JogoImplTest {
                         "-----\n" +
                         "-----\n",
                 jogo.tela());
+
         jogo.tick();
         Assert.assertEquals(
                 "Pontos: 1\n" +
@@ -185,6 +186,45 @@ public class JogoImplTest {
                         "-----\n" +
                         "-----\n" +
                         "----F\n",
+                jogo.tela());
+
+        jogo.tick();
+        jogo.tick();
+        jogo.tick();
+
+        Assert.assertEquals(
+                "Pontos: 1\n" +
+                        ".@---\n" +
+                        "-----\n" +
+                        "-----\n" +
+                        "-----\n" +
+                        "---F-\n",
+                jogo.tela());
+
+        jogo.tick();
+        jogo.tick();
+        jogo.tick();
+
+        Assert.assertEquals(
+                "Pontos: 1\n" +
+                        ".@---\n" +
+                        "-----\n" +
+                        "-----\n" +
+                        "---F-\n" +
+                        "-----\n",
+                jogo.tela());
+
+        jogo.tick();
+        jogo.tick();
+        jogo.tick();
+
+        Assert.assertEquals(
+                "Pontos: 1\n" +
+                        ".@---\n" +
+                        "-----\n" +
+                        "-----\n" +
+                        "--F--\n" +
+                        "-----\n",
                 jogo.tela());
     }
 
