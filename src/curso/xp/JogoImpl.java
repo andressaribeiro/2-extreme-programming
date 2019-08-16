@@ -6,13 +6,18 @@ import java.awt.*;
 
 public class JogoImpl implements Jogo {
 
+    public static final String OPONENTE = "F";
     private Jogador jogador = new Jogador(2, 3, new Point(0, 0));
+
+    private Point oponente = null;
 
     private final int tamanhoDoCenario = 5;
 
     private String[][] cenario = new String[tamanhoDoCenario][tamanhoDoCenario];
 
     private Integer score = -1;
+
+    private int contadorDeTicks = 0;
 
     public JogoImpl () {
         tela();
@@ -56,19 +61,17 @@ public class JogoImpl implements Jogo {
 
         for (int linha = 0; linha < tamanhoDoCenario; linha++) {
             for (int coluna = 0; coluna < tamanhoDoCenario; coluna++) {
-                builder.append(cenario[linha][coluna]);
+                if (oponente != null && linha == oponente.y && coluna == oponente.x) {
+                    builder.append(OPONENTE);
+                } else {
+                    builder.append(cenario[linha][coluna]);
+                }
             }
             builder.append("\n");
         }
 
         return builder.toString();
     }
-
-//    public void sobe2()     {anda(-1,  0);}
-//    public void desce2()    {anda( 1,  0);}
-//    public void esquerda2() {anda( 0, -1);}
-//    public void direita2()  {anda( 0,  1);}
-
 
         @Override
     public void sobe() {
@@ -77,7 +80,33 @@ public class JogoImpl implements Jogo {
         }
 
         jogador.getPosition().y = jogador.getPosition().y - 1;
+
+        moverOponente();
         tela();
+    }
+
+    private void moverOponente() {
+        if (oponente == null) {
+            oponente = new Point(4, 4);
+        }
+
+        if (contadorDeTicks == 3) {
+            moverOponenteEfetivamente();
+            contadorDeTicks = 0;
+        } else {
+            contadorDeTicks++;
+        }
+    }
+
+    private void moverOponenteEfetivamente() {
+        if (oponente.x == 4 && oponente.y == 4) {
+            oponente.x--;
+        }
+
+        if (oponente.x == 3 && oponente.y == 4) {
+            oponente.y--;
+        }
+
     }
 
     @Override
@@ -111,5 +140,6 @@ public class JogoImpl implements Jogo {
 
     @Override
     public void tick() {
+        moverOponente();
     }
 }

@@ -1,5 +1,6 @@
 
-import curso.xp.JogoImpl;
+
+import curso.xp.*;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -7,7 +8,7 @@ import java.awt.event.KeyEvent;
 
 public class KomeCommy {
 
-	private static JogoImpl jogo = new JogoImpl();
+	private static Jogo jogo = new JogoImpl();
 	private static boolean resume = true;
 
 	public static void main(String[] args) {
@@ -41,6 +42,7 @@ public class KomeCommy {
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
 			System.out.print(jogo.tela());
+			jogo.tick();
 
 			try {
 				Thread.sleep(60);
