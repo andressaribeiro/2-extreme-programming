@@ -1,12 +1,12 @@
 package curso.xp;
 
-import model.Player;
+import model.Jogador;
 
 import java.awt.*;
 
 public class JogoImpl implements Jogo {
 
-    private Player player = new Player(2, 3, new Point(0, 0));
+    private Jogador jogador = new Jogador(2, 3, new Point(0, 0));
 
     private final int tamanhoDoCenario = 5;
 
@@ -18,20 +18,21 @@ public class JogoImpl implements Jogo {
         tela();
     }
 
-    public String[][] refresh() {
+    private String[][] refresh() {
         if (cenario == null) {
-            cenario = new String[5][5];
+            cenario = new String[tamanhoDoCenario][tamanhoDoCenario];
         }
 
         String tracinho = "-";
+        String jogador = "@";
 
         for (int coluna = 0; coluna < tamanhoDoCenario; coluna++) {
-            for (int linha = 0; linha < 5; linha++) {
+            for (int linha = 0; linha < tamanhoDoCenario; linha++) {
                 if (cenario[linha][coluna] == null) {
                     cenario[linha][coluna] = tracinho;
                 } else {
 
-                    if ("@".equals(cenario[linha][coluna])) {
+                    if (jogador.equals(cenario[linha][coluna])) {
                         cenario[linha][coluna] = ".";
                     }
 
@@ -39,10 +40,10 @@ public class JogoImpl implements Jogo {
             }
         }
 
-        if ("-".equals(cenario[player.getPosition().y][player.getPosition().x])) {
+        if (tracinho.equals(cenario[this.jogador.getPosition().y][this.jogador.getPosition().x])) {
             score++;
         }
-        cenario[player.getPosition().y][player.getPosition().x] = "@";
+        cenario[this.jogador.getPosition().y][this.jogador.getPosition().x] = jogador;
 
         return cenario;
     }
@@ -65,40 +66,40 @@ public class JogoImpl implements Jogo {
 
     @Override
     public void sobe() {
-        if (player.getPosition().y - 1 < 0) {
+        if (jogador.getPosition().y - 1 < 0) {
             return;
         }
 
-        player.getPosition().y = player.getPosition().y - 1;
+        jogador.getPosition().y = jogador.getPosition().y - 1;
         tela();
     }
 
     @Override
     public void desce() {
-        if (player.getPosition().y + 1 > 4) {
+        if (jogador.getPosition().y + 1 > 4) {
             return;
         }
 
-        player.getPosition().y = player.getPosition().y + 1;
+        jogador.getPosition().y = jogador.getPosition().y + 1;
         tela();
     }
 
     @Override
     public void esquerda() {
-        if (player.getPosition().x - 1 < 0) {
+        if (jogador.getPosition().x - 1 < 0) {
             return;
         }
-        player.getPosition().x = player.getPosition().x - 1;
+        jogador.getPosition().x = jogador.getPosition().x - 1;
         tela();
     }
 
     @Override
     public void direita() {
-        if (player.getPosition().x + 1 > 4) {
+        if (jogador.getPosition().x + 1 > 4) {
             return;
         }
 
-        player.getPosition().x = player.getPosition().x + 1;
+        jogador.getPosition().x = jogador.getPosition().x + 1;
         tela();
     }
 
