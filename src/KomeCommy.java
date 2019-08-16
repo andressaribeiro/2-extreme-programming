@@ -16,11 +16,11 @@ public class KomeCommy {
 		frame.add(button);
 		frame.setVisible(true);
 
-		button.addKeyListener(new KeyAdapter(){
+		button.addKeyListener(new KeyAdapter() {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				switch (e.getKeyCode()){
+				switch (e.getKeyCode()) {
 					case KeyEvent.VK_DOWN: jogo.desce();
 					break;
 					case KeyEvent.VK_UP: jogo.sobe();

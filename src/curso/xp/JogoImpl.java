@@ -8,7 +8,9 @@ public class JogoImpl implements Jogo {
 
     private Player player = new Player(2, 3, new Point(0, 0));
 
-    private String[][] cenario = new String[5][5];
+    private final int tamanhoDoCenario = 5;
+
+    private String[][] cenario = new String[tamanhoDoCenario][tamanhoDoCenario];
 
     private Integer score = -1;
 
@@ -21,16 +23,16 @@ public class JogoImpl implements Jogo {
             cenario = new String[5][5];
         }
 
-        String t = "-";
+        String tracinho = "-";
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (cenario[j][i] == null) {
-                    cenario[j][i] = t;
+        for (int coluna = 0; coluna < tamanhoDoCenario; coluna++) {
+            for (int linha = 0; linha < 5; linha++) {
+                if (cenario[linha][coluna] == null) {
+                    cenario[linha][coluna] = tracinho;
                 } else {
 
-                    if ("@".equals(cenario[j][i])) {
-                        cenario[j][i] = ".";
+                    if ("@".equals(cenario[linha][coluna])) {
+                        cenario[linha][coluna] = ".";
                     }
 
                 }
@@ -49,11 +51,11 @@ public class JogoImpl implements Jogo {
         cenario = refresh();
 
         StringBuilder builder = new StringBuilder();
-        builder.append("Pontos: " + score+"\n");
+        builder.append("Pontos: " + score + "\n");
 
-        for (int i = 0; i < cenario.length; i++) {
-            for (int j = 0; j < cenario.length; j++) {
-                builder.append(cenario[i][j]);
+        for (int linha = 0; linha < tamanhoDoCenario; linha++) {
+            for (int coluna = 0; coluna < tamanhoDoCenario; coluna++) {
+                builder.append(cenario[linha][coluna]);
             }
             builder.append("\n");
         }
